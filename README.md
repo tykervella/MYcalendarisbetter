@@ -1,6 +1,6 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
-![preview](./assets/preview.png)
+![preview](./Assets/preview.png)
 
 [Repository Link](https://github.com/tykervella/MYcalendarisbetter)
 
