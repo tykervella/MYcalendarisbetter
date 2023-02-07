@@ -1,9 +1,4 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
-
-// Define elements that will be used throughout the rest of the code 
+// Defines elements that will be used throughout the rest of the code 
 var currentdateEl = document.querySelector('#currentDay');
 var savebuttonEl = document.getElementsByClassName(".saveBtn");
 
@@ -31,14 +26,20 @@ $('.saveBtn').on("click",function(event){
 }) 
 
 
+// function to check the time and determine whether it is past, present, or future
 function noworlater () {
 
   $(document).ready(function(){
+    //cycles through each element with the time-block class
     $(".time-block").each(function(){
+      //checks current hour
       var hourcounter = dayjs().hour();
 
+      //parses the time of an element by spliting "time-7" to just be 7, and so forth 
       var timeblock = parseInt($(this).attr("id").split("-")[1])
 
+
+      // adds different classes to the element depending on how it compares to the current time
       if (timeblock === hourcounter) {
         $(this).removeClass("past");
         $(this).removeClass("future");
@@ -55,10 +56,11 @@ function noworlater () {
     })
   })
 }
-  
 noworlater(); 
 
 
+
+// checks local storage for any stored user inputs and displays them if they are there.
 $("#time-7").children('.description').val(localStorage.getItem("time-7"))
 $("#time-8").children('.description').val(localStorage.getItem("time-8"))
 $("#time-9").children('.description').val(localStorage.getItem("time-9"))
@@ -71,13 +73,3 @@ $("#time-15").children('.description').val(localStorage.getItem("time-15"))
 $("#time-16").children('.description').val(localStorage.getItem("time-16"))
 $("#time-17").children('.description').val(localStorage.getItem("time-17"))
 
-
-$(function () {
- 
-  
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
- 
-});
